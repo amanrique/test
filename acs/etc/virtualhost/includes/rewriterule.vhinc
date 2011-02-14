@@ -1,0 +1,40 @@
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+	
+	#Avoid spidering through temporary hostnames
+	RewriteCond %{HTTP_HOST} ^.*\.aplyca.com$ 
+	RewriteRule ^/robots\.txt$ /extension/aplsystem/etc/robots_deny.txt [L]
+	
+	#eZPublish rewrite rules
+	RewriteRule content/treemenu/? /index_treemenu.php [L]
+	RewriteRule ^/var/cache/texttoimage/.* - [L]
+	RewriteRule ^/var/[^/]+/cache/texttoimage/.* - [L]
+	RewriteRule ^/var/cache/public/stylesheets/.+\.css - [L]
+	RewriteRule ^/var/[^/]+/cache/public/stylesheets/.+\.css - [L]
+	RewriteRule ^/var/cache/public/javascript/.+\.js - [L]
+	RewriteRule ^/var/[^/]+/cache/public/javascript/.+\.js - [L]
+	RewriteRule ^/var/cache/public/ezie/.+\.(gif|jpe?g|png|ico) - [L]
+	RewriteRule ^/var/[^/]+/cache/public/ezie/.+\.(gif|jpe?g|png|ico) - [L]
+	RewriteRule ^/var/storage/images/.+\.(gif|jpe?g|png|ico) - [L]
+	RewriteRule ^/var/[^/]+/storage/images/.+\.(gif|jpe?g|png|ico) - [L]
+	Rewriterule ^/design/[^/]+/javascript/.+\.js - [L]
+	Rewriterule ^/design/[^/]+/stylesheets/.+\.css - [L]
+	Rewriterule ^/design/[^/]+/images/.+\.(gif|jpe?g|png|ico) - [L]
+	Rewriterule ^/design/[^/]+/flash/.+\.(flv|swf) - [L]
+	Rewriterule ^/share/icons/.+\.(gif|jpe?g|png|ico) - [L]
+	Rewriterule ^/extension/[^/]+/design/[^/]+/javascript/.+\.(js|css|gif|jpe?g|png|ico|htm|swf) - [L]
+	Rewriterule ^/extension/[^/]+/design/[^/]+/lib/.+\.(js|css|gif|jpe?g|png|ico|htm|swf|flv) - [L]
+	Rewriterule ^/extension/[^/]+/design/[^/]+/stylesheets/.+\.(gif|jpe?g|png|ico|css) - [L]
+	Rewriterule ^/extension/[^/]+/design/[^/]+/images/.+\.(gif|jpe?g|png|ico) - [L]
+	Rewriterule ^/extension/[^/]+/design/[^/]+/flash/.+\.(flv|swf) - [L]
+	Rewriterule ^/packages/styles/.+/(stylesheets|images|javascript)/[^/]+/.* - [L]
+	RewriteRule ^/packages/styles/.+/thumbnail/.* - [L]
+	RewriteRule !list.php|var(.+)storage.pdf(.+)\.pdf$ /index.php
+
+	RewriteCond %{HTTP_HOST} ^webdav\..*
+	RewriteRule ^(.*) /webdav.php [L]
+	RewriteCond %{HTTP_HOST} ^soap\..*
+	RewriteRule ^(.*) /soap.php [L]
+	
+</IfModule>

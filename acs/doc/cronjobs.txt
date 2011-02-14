@@ -1,0 +1,17 @@
+AVAILABLE EZ PUBLISH CRONJOBS FOR THIS PROJECT
+======================
+
+CRONJOB
+==================
+-Description
+
+
+
+-Code
+	
+-Log Instructions
+	
+	
+	
+
+
